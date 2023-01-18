@@ -8,7 +8,7 @@ import dayjs from 'dayjs'
 import baiduCode from './config/baiduCode' // 百度统计hm码
 import htmlModules from './config/htmlModules' // 自定义插入的html块
 
-const DOMAIN_NAME = 'lyszxx.com' // 域名 (不带https)
+const DOMAIN_NAME = 'lvszxx.com' // 域名 (不带https)
 const WEB_SITE = `https://${DOMAIN_NAME}` // 网址
 
 export default defineConfig4CustomTheme<VdoingThemeConfig>({
@@ -19,13 +19,17 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         '/': {
             lang: 'zh-CN',
             title: "MaxLoong's blog",
-            description: 'web前端技术博客,生活随笔',
+            description: 'web前端技术博客,生活随笔 MaxLoong, javascript',
         }
     },
     // base: '/', // 默认'/'。如果你想将你的网站部署到如 https://foo.github.io/bar/，那么 base 应该被设置成 "/bar/",（否则页面将失去样式等文件）
 
     // 主题配置
     themeConfig: {
+        repo: 'user-lys/vuePresssBlog', // Github仓库地址
+        docsDir: 'docs', // .md文件放在了docs目录下
+        editLinks: true, // 启用编辑链接
+        editLinkText: '编辑',
         // 导航配置
         nav: [
             { text: '首页', link: '/' },
@@ -97,38 +101,33 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
                     { text: '友情链接', link: '/friends/' },
                 ],
             },
-            { text: '关于', link: '/about/' },
-            {
-                text: '收藏',
-                link: '/pages/beb6c0bd8a66cea6/',
-                // items: [
-                //   { text: '网站', link: '/pages/beb6c0bd8a66cea6/' },
-                //   { text: '资源', link: '/pages/eee83a9211a70f9d/' },
-                //   { text: 'Vue资源', link: '/pages/12df8ace52d493f6/' },
-                // ],
-            },
-            {
-                text: '索引',
-                link: '/archives/',
-                items: [
-                    { text: '分类', link: '/categories/' },
-                    { text: '标签', link: '/tags/' },
-                    { text: '归档', link: '/archives/' },
-                ],
-            },
+            // { text: '关于', link: '/about/' },
+            // {
+            //     text: '收藏',
+            //     link: '/pages/beb6c0bd8a66cea6/',
+            //     // items: [
+            //     //   { text: '网站', link: '/pages/beb6c0bd8a66cea6/' },
+            //     //   { text: '资源', link: '/pages/eee83a9211a70f9d/' },
+            //     //   { text: 'Vue资源', link: '/pages/12df8ace52d493f6/' },
+            //     // ],
+            // },
+            // {
+            //     text: '索引',
+            //     link: '/archives/',
+            //     items: [
+            //         { text: '分类', link: '/categories/' },
+            //         { text: '标签', link: '/tags/' },
+            //         { text: '归档', link: '/archives/' },
+            //     ],
+            // },
         ],
         sidebarDepth: 1, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
-        logo: '/img/logo.png', // 导航栏logo
-        repo: 'user-lys', // 导航栏右侧生成Github链接
+        logo: '/img/logo.jpeg', // 导航栏logo
         searchMaxSuggestions: 10, // 搜索结果显示最大数
         lastUpdated: '上次更新', // 开启更新时间，并配置前缀文字   string | boolean (取值为git提交时间)
-        docsDir: 'docs', // 编辑的文件夹
-        // docsBranch: 'master', // 编辑的文件所在分支，默认master。 注意：如果你的分支是main则修改为main
-        editLinks: true, // 启用编辑
-        editLinkText: '编辑',
 
+        // docsBranch: 'master', // 编辑的文件所在分支，默认master。 注意：如果你的分支是main则修改为main,
         //*** 以下是Vdoing主题相关配置，文档：https://doc.xugaoyi.com/pages/a20ce8/ ***//
-
         // category: false, // 是否打开分类功能，默认true
         // tag: false, // 是否打开标签功能，默认true
         // archive: false, // 是否打开归档功能，默认true
@@ -137,13 +136,13 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         // pageStyle: 'line', // 页面风格，可选值：'card'卡片 | 'line' 线（未设置bodyBgImg时才生效）， 默认'card'。 说明：card时背景显示灰色衬托出卡片样式，line时背景显示纯色，并且部分模块带线条边框
 
         // bodyBgImg: [
-        //   'https://fastly.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175828.jpeg',
-        //   'https://fastly.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175845.jpeg',
-        //   'https://fastly.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175846.jpeg'
+        //     'https://fastly.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175828.jpeg',
+        //     'https://fastly.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175845.jpeg',
+        //     'https://fastly.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175846.jpeg'
         // ], // body背景大图，默认无。 单张图片 String | 多张图片 Array, 多张图片时隔bodyBgImgInterval切换一张。
-        // bodyBgImgOpacity: 0.5, // body背景图透明度，选值 0.1~1.0, 默认0.5
+        bodyBgImgOpacity: 0.5, // body背景图透明度，选值 0.1~1.0, 默认0.5
         // bodyBgImgInterval: 15, // body多张背景图时的切换间隔, 默认15，单位s
-        // titleBadge: false, // 文章标题前的图标是否显示，默认true
+        titleBadge: false, // 文章标题前的图标是否显示，默认true
         // titleBadgeIcons: [ // 文章标题前图标的地址，默认主题内置图标
         //   '图标地址1',
         //   '图标地址2'
@@ -154,8 +153,8 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         //   showToArticle: true, // 显示到文章页底部，默认true
         //   moreArticle: '/archives' // “更多文章”跳转的页面，默认'/archives'
         // },
-        // rightMenuBar: false, // 是否显示右侧文章大纲栏，默认true (屏宽小于1300px下无论如何都不显示)
-        // sidebarOpen: false, // 初始状态是否打开左侧边栏，默认true
+        rightMenuBar: true, // 是否显示右侧文章大纲栏，默认true (屏宽小于1300px下无论如何都不显示)
+        sidebarOpen: true, // 初始状态是否打开左侧边栏，默认true
         // pageButton: false, // 是否显示快捷翻页按钮，默认true
 
         // 默认外观模式（用户未在页面手动修改过模式时才生效，否则以用户设置的模式为准），可选：'auto' | 'light' | 'dark' | 'read'，默认'auto'。
@@ -200,11 +199,11 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         },
 
         // 页脚信息
-        footer: {
-            createYear: 2023, // 博客创建年份
-            copyrightInfo:
-                'Evan Xu | <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/LICENSE" target="_blank">MIT License</a>', // 博客版权信息、备案信息等，支持a标签或换行标签</br>
-        },
+        // footer: {
+        //     createYear: 2023, // 博客创建年份
+        //     copyrightInfo:
+        //         'Evan Xu | <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/LICENSE" target="_blank">MIT License</a>', // 博客版权信息、备案信息等，支持a标签或换行标签</br>
+        // },
 
         // 扩展自动生成frontmatter。（当md文件的frontmatter不存在相应的字段时将自动添加。不会覆盖已有的数据。）
         extendFrontmatter: {
@@ -220,12 +219,12 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 
     // 注入到页面<head>中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
     head: [
-        ['link', { rel: 'icon', href: '/img/favicon.ico' }], //favicons，资源放在public文件夹
+        ['link', { rel: 'icon', href: '/img/logo.jpeg' }], //favicons，资源放在public文件夹
         [
             'meta',
             {
                 name: 'keywords',
-                content: '前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown',
+                content: '前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,react,js,ES6,TypeScript,vue,css3,html5,Node,git,github,markdown,MaxLoong',
             },
         ],
         ['meta', { name: 'baidu-site-verification', content: '7F55weZDDc' }], // 百度统计的站长验证（你可以去掉）
@@ -260,7 +259,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         ],
 
         // 全文搜索。 ⚠️注意：此插件会在打开网站时多加载部分js文件用于搜索，导致初次访问网站变慢。如在意初次访问速度的话可以不使用此插件！（推荐：vuepress-plugin-thirdparty-search）
-        // 'fulltext-search',
+        'fulltext-search',
 
         // 可以添加第三方搜索链接的搜索框（继承原官方搜索框的配置参数）
         [
@@ -291,7 +290,6 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
                 ],
             }
         ],
-
         [
             'one-click-copy', // 代码块复制按钮
             {
@@ -332,8 +330,8 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
                     clientID: 'a6e1355287947096b88b',
                     clientSecret: 'f0e77d070fabfcd5af95bebb82b2d574d7248d71',
                     repo: 'blog-gitalk-comment', // GitHub 仓库
-                    owner: 'xugaoyi', // GitHub仓库所有者
-                    admin: ['xugaoyi'], // 对仓库有写权限的人
+                    owner: 'MaxLoong', // GitHub仓库所有者
+                    admin: ['MaxLoong'], // 对仓库有写权限的人
                     // distractionFreeMode: true,
                     pagerDirection: 'last', // 'first'正序 | 'last'倒序
                     id: '<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>', //  页面的唯一标识,长度不能超过50
